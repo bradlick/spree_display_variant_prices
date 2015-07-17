@@ -1,0 +1,7 @@
+<div class="col-md-4">
+  <%= f.field_container :default_short_title, class: ['form-group'] do %>
+      <%= f.label :default_short_title, Spree.t(:default_short_title) %>
+      <%= f.check_box :default_short_title %>
+      <%= f.error_message_on :default_short_title %>
+  <% end %>
+</div>

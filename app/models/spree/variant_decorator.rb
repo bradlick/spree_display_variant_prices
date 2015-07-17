@@ -21,7 +21,11 @@ module Spree
     private
 
     def set_default_short_title
-      update_attributes short_title: 'TEST'
+      option_value = option_values.joins(:option_type)
+                         .where(Spree::OptionType.table_name => {default_short_title: true})
+                         .select("#{Spree::OptionValue.table_name}.presentation")
+                         .first
+      update_attributes short_title: option_value.presentation
     end
 
   end
